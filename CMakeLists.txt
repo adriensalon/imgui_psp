@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 3.13)
 project(imgui_psp)
+set(imgui_version "1.92.5-docking")
 
 option(IMGUIPSP_BUILD_DEMO "Build a demo executable" OFF)
 
@@ -22,20 +23,11 @@ if(IMGUIPSP_BUILD_DEMO)
     add_subdirectory("demo")
 endif()
 
-# include(GNUInstallDirs)
+configure_file("imgui.pc.in" "${CMAKE_BINARY_DIR}/imgui.pc" @ONLY)
+install(TARGETS "imgui" ARCHIVE DESTINATION "lib")
+install(DIRECTORY "include" DESTINATION "include")
+install(DIRECTORY "external/imgui" DESTINATION "include" FILES_MATCHING PATTERN "*.h")
+install(FILES "external/imgui/LICENSE.txt" DESTINATION "share/licenses/imgui")
+install(FILES "${CMAKE_BINARY_DIR}/imgui.pc" DESTINATION "lib/pkgconfig")
+install(DIRECTORY "external/imgui/docs/" DESTINATION "share/doc/imgui" FILES_MATCHING PATTERN "*.md")
 
-# install(TARGETS imgui_psp
-#     ARCHIVE DESTINATION "psp/lib"
-#     LIBRARY DESTINATION "psp/lib")
-
-# install(DIRECTORY "include"
-#     DESTINATION "psp/include"
-#     FILES_MATCHING PATTERN "*.hpp")
-
-# install(DIRECTORY "external/imgui/upstream/imgui"
-#     DESTINATION "psp/include"
-#     FILES_MATCHING PATTERN "*.h")
-
-# install(FILES "LICENSE" "external/imgui/upstream/imgui/LICENCE.txt"
-#     DESTINATION "psp/share/licenses/imgui"
-# )
