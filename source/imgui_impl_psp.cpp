@@ -6,7 +6,7 @@
 #include <psprtc.h>
 
 #include "imgui.h"
-#include "imgui_impl_psp.h"
+#include "backends/imgui_impl_psp.h"
 
 namespace {
 

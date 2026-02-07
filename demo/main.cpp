@@ -4,7 +4,7 @@
 #include <pspkernel.h>
 
 #include "imgui.h"
-#include "imgui_impl_psp.h"
+#include "backends/imgui_impl_psp.h"
 
 PSP_MODULE_INFO("imgui_psp_demo", 0, 1, 0);
 PSP_MAIN_THREAD_ATTR(THREAD_ATTR_USER | THREAD_ATTR_VFPU);
