@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.13)
 project(imgui_psp)
-set(imgui_version "1.92.5-docking")
+set(imgui_version "1.92.5")
 
 option(IMGUIPSP_BUILD_DEMO "Build a demo executable" OFF)
 
