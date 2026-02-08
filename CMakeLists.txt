@@ -25,8 +25,16 @@ endif()
 
 configure_file("imgui.pc.in" "${CMAKE_BINARY_DIR}/imgui.pc" @ONLY)
 install(TARGETS "imgui" ARCHIVE DESTINATION "lib")
-install(DIRECTORY "include" DESTINATION "include")
-install(DIRECTORY "external/imgui" DESTINATION "include" FILES_MATCHING PATTERN "*.h")
+install(FILES "include/backends/imgui_impl_psp.h" DESTINATION "include/backends")
+install(FILES "external/imgui/misc/cpp/imgui_stdlib.h"  DESTINATION "include/misc/cpp")
+install(FILES 
+		"external/imgui/imconfig.h" 
+		"external/imgui/imgui_internal.h" 
+		"external/imgui/imgui.h" 
+		"external/imgui/imstb_rectpack.h" 
+		"external/imgui/imstb_textedit.h" 
+		"external/imgui/imstb_truetype.h" 		
+	DESTINATION "include")
 install(FILES "external/imgui/LICENSE.txt" DESTINATION "share/licenses/imgui")
 install(FILES "${CMAKE_BINARY_DIR}/imgui.pc" DESTINATION "lib/pkgconfig")
 install(DIRECTORY "external/imgui/docs/" DESTINATION "share/doc/imgui" FILES_MATCHING PATTERN "*.md")
